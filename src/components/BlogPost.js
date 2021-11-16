@@ -5,8 +5,7 @@ const BlogPost = ({author, body, title, published_date}) => {
     <div>
       <h2>{title}</h2>
       <span>Written by {author} on {published_date}</span>
-      <div>
-        {body}
+      <div dangerouslySetInnerHTML={{ __html: body }}>
       </div>
     </div>
   );
