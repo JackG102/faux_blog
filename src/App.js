@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import About from './components/About';
 import AddBlogForm from './components/AddBlogForm';
 import BlogList from './components/BlogList';
 import Header from './components/Header';
@@ -18,6 +19,9 @@ function App() {
       </Route>
       <Route path="/add_blog">
         <AddBlogForm setBlogPosts={setBlogPosts} blogPosts={blogPosts} />
+      </Route>
+      <Route path="/about">
+        <About />
       </Route>
     </div>
   );
