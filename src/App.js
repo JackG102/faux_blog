@@ -1,16 +1,23 @@
 import React, { useState } from 'react';
+import AddBlogForm from './components/AddBlogForm';
 import BlogList from './components/BlogList';
 import Header from './components/Header';
+import Route from './components/Route';
 
 function App() {
   // Fetch JSON data for blog posts and load it into state
   const blogPostsJson = require('./data/blog_data.json');
   const [blogPosts, setBlogPosts] = useState(blogPostsJson);
-  
+
   return (
     <div className="App">
       <Header />
-      <BlogList blogPosts={blogPosts}/>
+      <Route path="/">
+        <BlogList blogPosts={blogPosts}/>
+      </Route>
+      <Route path="/add_blog">
+        <AddBlogForm setBlogPosts={setBlogPosts}/>
+      </Route>
     </div>
   );
 }
