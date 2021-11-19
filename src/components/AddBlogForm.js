@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 const AddBlogForm = () => {
+  const [body, setBody] = useState('')
+
+  const onSubmit = (event, editor) => {
+    event.preventDefault();
+    console.log(event.target[0].value);
+    console.log(event.target[1].value);
+    console.log(event.target[2].value);
+    console.log(body);
+  }
+
   return (
     <div>
-      <form className="ui form">
+      <form onSubmit={onSubmit} className="ui form">
         <div className="field">
           <label forHTML="title">Title</label>
           <input name="title " type="text" />
@@ -31,6 +41,7 @@ const AddBlogForm = () => {
             onChange={ ( event, editor ) => {
                 const data = editor.getData();
                 console.log( { event, editor, data } );
+                setBody(data);
             } }
             onBlur={ ( event, editor ) => {
                 console.log( 'Blur.', editor );
