@@ -10,7 +10,8 @@ function App() {
   const [blogPosts, setBlogPosts] = useState(blogPostsJson);
 
   return (
-    <div className="App">
+    <div className="App ui raised very padded text container segment">
+      <h1>Jack's React Blog</h1>
       <Header />
       <Route path="/">
         <BlogList blogPosts={blogPosts}/>

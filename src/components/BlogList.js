@@ -17,7 +17,6 @@ const BlogList = ({blogPosts}) => {
 
   return (
     <div>
-      <h2>Blog List</h2>
       {renderBlogPosts}
     </div>
   );
