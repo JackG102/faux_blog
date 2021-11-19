@@ -2,15 +2,13 @@ import React, { useState } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
-const AddBlogForm = () => {
+const AddBlogForm = ({ blogPosts, setBlogPosts }) => {
   const [body, setBody] = useState('')
 
-  const onSubmit = (event, editor) => {
+  const onSubmit = (event) => {
     event.preventDefault();
-    console.log(event.target[0].value);
-    console.log(event.target[1].value);
-    console.log(event.target[2].value);
-    console.log(body);
+    const blogPost = {};
+    setBlogPosts([...blogPosts, blogPost]);
   }
 
   return (
@@ -32,22 +30,19 @@ const AddBlogForm = () => {
           <label>Body</label>
           <CKEditor
             editor={ ClassicEditor }
-            config = {{ height: 500 }}
+            config = {{ 
+              height: 500,
+              mediaEmbed: {
+                previewsInData: true
+              }
+            }} 
             data=""
             onReady={ editor => {
                 // You can store the "editor" and use when it is needed.
-                console.log( 'Editor is ready to use!', editor );
             } }
             onChange={ ( event, editor ) => {
                 const data = editor.getData();
-                console.log( { event, editor, data } );
                 setBody(data);
-            } }
-            onBlur={ ( event, editor ) => {
-                console.log( 'Blur.', editor );
-            } }
-            onFocus={ ( event, editor ) => {
-                console.log( 'Focus.', editor );
             } }
           />
         </div>

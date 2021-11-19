@@ -17,7 +17,7 @@ function App() {
         <BlogList blogPosts={blogPosts}/>
       </Route>
       <Route path="/add_blog">
-        <AddBlogForm setBlogPosts={setBlogPosts}/>
+        <AddBlogForm setBlogPosts={setBlogPosts} blogPosts={blogPosts} />
       </Route>
     </div>
   );
