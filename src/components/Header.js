@@ -2,10 +2,10 @@ import React from 'react';
 
 const Header = () => {
   return (
-    <div class="ui three item menu">
-      <a href="/" class="item active">Blog</a>
-      <a href="/" class="item">Add Blog</a>
-      <a href="/" class="item">About</a>
+    <div className="ui three item menu">
+      <a href="/" className="item active">Blog</a>
+      <a href="/" className="item">Add Blog</a>
+      <a href="/" className="item">About</a>
     </div>
   );
 }

@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState} from 'react';
 import BlogPost from './BlogPost';
 
 const BlogList = () => {
-  
-  let blogPosts = require('../data/blog_data.json');
-  console.log(blogPosts);
+  // Fetch JSON data for blog posts and load it into state
+  const blogPostsJson = require('../data/blog_data.json');
+  const [blogPosts, setBlogPosts] = useState(blogPostsJson);
+
   const renderBlogPosts = blogPosts.map((blogPost) => {
 
     return (
